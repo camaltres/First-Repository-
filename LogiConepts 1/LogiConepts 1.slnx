@@ -1,1 +1,8 @@
-<Solution />
+<Solution>
+  <Folder Name="/01/">
+    <Project Path="ExerciseNumberOne/ExerciseNumberOne.csproj" Id="5e19188b-e601-4ac5-bfe7-868c125da5a3" />
+  </Folder>
+  <Folder Name="/Shared/">
+    <Project Path="Reusable code/Reusable code.csproj" Id="e535d019-828e-49e9-8a70-3256794d71d8" />
+  </Folder>
+</Solution>
