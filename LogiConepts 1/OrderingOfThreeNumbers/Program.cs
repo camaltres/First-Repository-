@@ -1,7 +1,7 @@
 ﻿
 //User interface.
 Console.WriteLine("_______________________________");
-Console.WriteLine("Programa para ordenar 3 números");
+Console.WriteLine("Programa para ordenar 3 numeros");
 Console.WriteLine("_______________________________");
 
 //This part of the code is important because it validates that the user has entered correct data.
