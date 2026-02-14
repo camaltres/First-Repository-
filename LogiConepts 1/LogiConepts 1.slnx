@@ -1,6 +1,9 @@
 <Solution>
-  <Folder Name="/01/">
+  <Folder Name="/01 Exercise/">
     <Project Path="ExerciseNumberOne/ExerciseNumberOne.csproj" Id="5e19188b-e601-4ac5-bfe7-868c125da5a3" />
+  </Folder>
+  <Folder Name="/02 Exercise/">
+    <Project Path="Largest number/Largest number.csproj" Id="87ee1a6f-4045-464c-98b6-ad988b0750ba" />
   </Folder>
   <Folder Name="/Shared/">
     <Project Path="Reusable code/Reusable code.csproj" Id="e535d019-828e-49e9-8a70-3256794d71d8" />
