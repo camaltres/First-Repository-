@@ -11,6 +11,7 @@ if (!double.TryParse(number1, out double result1))
     return;
 }
 
+// I believe the part of the document that says the number 3 is a multiple of 45 is misspelled. I think the number 45 is a multiple of 3. I apologize if I caused any inconvenience.
 Console.WriteLine("Ingrese el segundo número");
 var number2 = Console.ReadLine();
 if (!double.TryParse(number2, out double result2))
