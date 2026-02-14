@@ -5,6 +5,9 @@
   <Folder Name="/02 Exercise/">
     <Project Path="Largest number/Largest number.csproj" Id="87ee1a6f-4045-464c-98b6-ad988b0750ba" />
   </Folder>
+  <Folder Name="/03 Exercise/">
+    <Project Path="OrderingOfThreeNumbers/OrderingOfThreeNumbers.csproj" Id="4ea4e730-d965-4d53-b78b-810c4980e70f" />
+  </Folder>
   <Folder Name="/Shared/">
     <Project Path="Reusable code/Reusable code.csproj" Id="e535d019-828e-49e9-8a70-3256794d71d8" />
   </Folder>
