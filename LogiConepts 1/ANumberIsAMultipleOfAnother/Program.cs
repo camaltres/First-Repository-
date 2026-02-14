@@ -21,9 +21,9 @@ if (!double.TryParse(number2, out double result2))
 
 if (result1 % result2 == 0) 
 {
-    Console.WriteLine($"El número: {result2} es múltiplo de {result1}");
+    Console.WriteLine($"El número: {result1} es múltiplo de {result2}");
 }
 else
 {
-    Console.WriteLine($"El número: {result2} no es múltiplo de {result1}");
+    Console.WriteLine($"El número: {result1} no es múltiplo de {result2}");
 }
