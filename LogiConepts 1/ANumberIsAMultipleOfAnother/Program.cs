@@ -1,6 +1,6 @@
 ﻿
 Console.WriteLine("______________________________________________");
-Console.WriteLine("Programa para saber si 2 números son múltiplos");
+Console.WriteLine("Programa para saber si 2 numeros son múltiplos");
 Console.WriteLine("______________________________________________");
 
 Console.WriteLine("Ingrese el primer número");
