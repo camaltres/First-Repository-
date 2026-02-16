@@ -75,12 +75,12 @@ do
     if (x > salaryMinimun)
     {
         Console.WriteLine($"Nombre: {name}");
-        Console.WriteLine($"Salario mensual: {x}");
+        Console.WriteLine($"Salario mensual: {x:C2}"); 
     }
     else
     {  
         Console.WriteLine($"Nombre: {name}");
-        Console.WriteLine($"Salario: {salaryMinimun}");
+        Console.WriteLine($"Salario: {salaryMinimun:C2}");
     }
 
     do
