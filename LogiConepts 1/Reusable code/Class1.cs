@@ -16,7 +16,7 @@
         }
 
 
-        //This method is used to obtain a string
+        //This method is used to obtain a string.
         public static string? GetString(string message)
         {
             Console.Write(message);
@@ -25,7 +25,7 @@
         }
 
 
-        //This method is used to obtain a float
+        //This method is used to obtain a float.
         public static float GetFloat(string message)
         {
             Console.Write(message);
