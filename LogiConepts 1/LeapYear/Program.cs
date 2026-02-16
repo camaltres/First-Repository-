@@ -6,7 +6,7 @@ Console.WriteLine("Ingrese el año");
 var year = Console.ReadLine();
 if (!double.TryParse(year, out double yeardouble))
 {
-    Console.WriteLine("Ingrese un dato valido");
+    Console.WriteLine("Ingrese un dato valid");
     return;
 }
 
