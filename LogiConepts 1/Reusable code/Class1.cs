@@ -5,7 +5,7 @@
         //This method is used to obtain an integer
         public static int GetInt(string message)
         { 
-            Console.WriteLine(message);
+            Console.Write(message);
             var numberString = Console.ReadLine();
             if (int.TryParse(numberString, out int numberInt))
             {
