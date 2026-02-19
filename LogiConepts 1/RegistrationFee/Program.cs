@@ -12,7 +12,7 @@ do
     var valueCredits = ConsoleExtension.GetDecimal("Valor Crédito: ");
     var stratum = ConsoleExtension.GetInt("Estrato del estudiante: ");
   
-    decimal x;
+
     float discount;
     float regularPrice;
     float difference;
@@ -85,14 +85,25 @@ do
             Console.WriteLine($"Costo de la matricula: {value:C2}");
         }
     }
-    else
+    else 
     {
 
-        Console.WriteLine("Estrato no permitido");
-        
+        if (credits <= 20)
+        {
+            regularPrice = (float)(credits * valueCredits);
+            Console.WriteLine($"Costo de la matricula: {regularPrice:C2}");
+        }
+        else
+        { 
+            regularPrice = (float)(20 * valueCredits);
+            difference = credits - 20;
+            increase = (float)(valueCredits * 2) * difference;
+            addition = increase + regularPrice;
+            Console.WriteLine($"Costo de la matricula: {addition:C2}");
+        }
     }
 
-    
+
     decimal value1;
     if (stratum == 1)
     {
@@ -109,7 +120,7 @@ do
     }
     else
     {
-        Console.WriteLine("Valor de estrato incorrecto");
+        Console.WriteLine("Los estratos mayores a 2 no tiene subsidio");
 
     }
 

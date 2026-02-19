@@ -68,6 +68,21 @@
             return null;
         }
 
+        public static char GetChar(string message)
+        {
+            Console.Write(message);
+            var value = Console.ReadLine();
+            if (char.TryParse(value, out char valueCharacter))
+            {
+
+                return valueCharacter;
+            }
+            else
+            {
+                return (char)0;
+            }
+        
+        }
 
 
 

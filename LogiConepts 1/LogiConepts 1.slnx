@@ -22,7 +22,9 @@
   </Folder>
   <Folder Name="/08 Exercise/">
     <Project Path="RegistrationFee/RegistrationFee.csproj" Id="d57082fc-0214-4a41-8274-42b36d0fab89" />
-    <Project Path="SubProgram/SubProgram.csproj" Id="9698cc5c-7541-454b-9c23-427e9de714c0" />
+  </Folder>
+  <Folder Name="/09 Exercise/">
+    <Project Path="ShippingOfGoods/ShippingOfGoods.csproj" Id="ed5559af-d398-4b26-ac9e-a5723c913ef2" />
   </Folder>
   <Folder Name="/Shared/">
     <Project Path="Reusable code/Reusable code.csproj" Id="e535d019-828e-49e9-8a70-3256794d71d8" />
