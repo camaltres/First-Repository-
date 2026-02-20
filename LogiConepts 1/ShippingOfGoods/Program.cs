@@ -39,13 +39,15 @@ do
    var valueMerchandise = ConsoleExtension.GetDecimal("Ingrese el valor de la mercancia...........: ");
    var secondOptions = ConsoleExtension.GetChar("¿Es Lunes [S]í, [N]o?............................:");
    var payOptions = ConsoleExtension.GetChar("Paga en [E]fectivo o [T]argeta......................:");
-   decimal fee;
+   decimal fee = 0;
    int subtraction;
    decimal valueMoney;
+   decimal discount;
 
     if (kilograms < 100)
     {
         fee = 20000M;
+        valueMoney = fee;
         Console.WriteLine($"La Tarifa es...............................: {fee:C2}");
     }
     if ((kilograms >= 100) && (kilograms <= 150))
@@ -65,6 +67,7 @@ do
         Console.WriteLine($"La Tarifa es...............................: {fee:C2}");
     }
 
+
     switch (secondOptions)
     {
         case 's':
@@ -80,9 +83,13 @@ do
                 if (valueMerchandise > 1000000)
                 {
 
-                        valueMoney = ;
-                    
-                }
+                        valueMoney = fee * 0.6M;
+                        discount = fee - valueMoney;
+
+                        Console.WriteLine($"El valor total del envío es.................: {valueMoney:C2}");
+                        Console.WriteLine($"El descuento aplicado es....................: {discount:C2}");
+
+                    }
             break;
             
           }
