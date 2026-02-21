@@ -41,67 +41,151 @@ do
    var payOptions = ConsoleExtension.GetChar("Paga en [E]fectivo o [T]argeta......................:");
    decimal fee = 0;
    int subtraction;
-   decimal valueMoney;
-   decimal discount;
+   decimal valueMoney = 0;
+   decimal discount = 0;
 
     if (kilograms < 100)
     {
         fee = 20000M;
         valueMoney = fee;
-        Console.WriteLine($"La Tarifa es...............................: {fee:C2}");
     }
     if ((kilograms >= 100) && (kilograms <= 150))
     {
         fee = 25000M;
-        Console.WriteLine($"La Tarifa es...............................: {fee:C2}");
     }
     if ((kilograms > 150) && (kilograms <= 200))
     {
         fee = 30000M;
-        Console.WriteLine($"La Tarifa es...............................: {fee:C2}");
     }
     if (kilograms > 200)
     {
         subtraction = (int)(kilograms - 200) / 10 * 2000;
         fee = 35000M + subtraction;
-        Console.WriteLine($"La Tarifa es...............................: {fee:C2}");
     }
+    Console.WriteLine($"La Tarifa es...............................: {fee:C2}");
 
 
     switch (secondOptions)
     {
         case 's':
 
+            switch (payOptions)
+            {
+                case 'e':
+                    if(valueMerchandise >= 300000 || (valueMerchandise <= 600000))
+                    {
+                        valueMoney = fee * 0.1M;
+                        discount = fee - valueMoney;
+
+
+                    }
+                    if ((valueMerchandise > 600000) || (valueMerchandise <= 1000000))
+                    {
+
+                        valueMoney = fee * 0.2M;
+                        discount = fee - valueMoney;
+
+                    }
+                    if (valueMerchandise > 1000000)
+                    {
+
+                        valueMoney = fee * 0.3M;
+                        discount = fee - valueMoney;
+
+                    }
+                    Console.WriteLine($"El valor total del envío es.................: {valueMoney:C2}");
+                    Console.WriteLine($"El descuento aplicado es......................: {discount:C2}");
+                break;
+
+                case 't':
+                    valueMoney = fee * 0.5M;
+                    discount = fee - valueMoney;
+                    Console.WriteLine($"El valor total del envío es.................: {valueMoney:C2}");
+                    Console.WriteLine($"El descuento aplicado es......................: {discount:C2}");
+                break;
+                default:
+
+                    Console.WriteLine("Opción incorrecta");
+
+
+                break;
+            }
 
         break;
 
         case 'n':
- 
           switch (payOptions)
           {
-            case 'E':
+            case 'e':
+
                 if (valueMerchandise > 1000000)
                 {
 
-                        valueMoney = fee * 0.6M;
-                        discount = fee - valueMoney;
+                   valueMoney = fee * 0.6M;
+                   discount = fee - valueMoney;
 
-                        Console.WriteLine($"El valor total del envío es.................: {valueMoney:C2}");
-                        Console.WriteLine($"El descuento aplicado es....................: {discount:C2}");
+                }
+                if (valueMerchandise >= 300000 || (valueMerchandise <= 600000))
+                {
+                    valueMoney = fee * 0.1M;
+                    discount = fee - valueMoney;
 
-                    }
+                 
+                }
+                if ((valueMerchandise > 600000) || (valueMerchandise <= 1000000))
+                {
+                    valueMoney = fee * 0.2M;
+                    discount = fee - valueMoney;
+
+                }
+                Console.WriteLine($"El valor total del envío es.................: {valueMoney:C2}");
+                Console.WriteLine($"El descuento aplicado es......................: {discount:C2}");
             break;
-            
-          }
+
+            case 't':
+
+               if (valueMerchandise >= 300000 || (valueMerchandise <= 600000))
+               {
+                   valueMoney = fee * 0.1M;
+                   discount = fee - valueMoney;
+               }
+               if ((valueMerchandise > 600000) || (valueMerchandise <= 1000000))
+               {
+
+                  valueMoney = fee * 0.2M;
+                  discount = fee - valueMoney;
+
+               }
+               if (valueMerchandise > 1000000)
+               {
+
+                  valueMoney = fee * 0.3M;
+                  discount = fee - valueMoney;
+
+               }
+               Console.WriteLine($"El valor total del envío es.................: {valueMoney:C2}");
+               Console.WriteLine($"El descuento aplicado es......................: {discount:C2}");
+
+            break;
+
+            default:
+
+              Console.WriteLine("Opción incorrecta");   
                 
-        break;  
+            break;
+
+          }     
+        break;
+        default:
+
+            Console.WriteLine("Opción incorrecta");
+
+        break;
     
     }
-
-
    do
    {
-    answer = ConsoleExtension.GetValidOptions("¿Es Lunes [S]í, [N]o?: ", options);
+    answer = ConsoleExtension.GetValidOptions("¿Quieres seguir [S]í, [N]o?: ", options);
    }while (!options.Any(x => x.Equals(answer, StringComparison.CurrentCultureIgnoreCase)));
 }
 while (answer!.Equals("s", StringComparison.CurrentCultureIgnoreCase)) ;
