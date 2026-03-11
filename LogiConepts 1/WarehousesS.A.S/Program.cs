@@ -16,7 +16,7 @@ do
     {
         if (TpVerific == 'P' || TpVerific == 'p')
         {
-
+            decimal CCIncremetn = CC * (decimal)1.2;
         }
 
     }
