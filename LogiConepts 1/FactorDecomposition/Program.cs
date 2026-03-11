@@ -5,21 +5,28 @@ Console.WriteLine("_____________________________________________");
 Console.WriteLine("Programa que descompone un número en factores");
 Console.WriteLine("_____________________________________________");
 
-var number = ConsoleExtension.GetInt("Ingrese el numero a factorizar.....: ");
+var number = ConsoleExtension.GetInt("Ingrese el número a factorizar.....: ");
 
+//Print the number to be factored with an equal sign
 Console.Write($"{number} = ");
+
+//Loop containing a hypothetical prime number and the initial value
 for (int i = 2; i <= number; i++)
 {
-    int dividor = 0;
+    //variable that keeps track of the divisors of a number
+    int divisors = 0;
+
+    //Loop that checks if a number is prime
     for (int a = 1; a <= i; a++)
     {
-        if (i % a == 0)
-        { 
-          dividor++;
+        if (i % a == 0) 
+        {
+          divisors++;
         }
     
     }
-    if (dividor == 2)
+    ////loop that prints the number of times the prime number can factor the initial number
+    if (divisors == 2)
     {
         while (number % i == 0)
         {
