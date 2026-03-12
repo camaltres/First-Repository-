@@ -68,30 +68,6 @@
             return null;
         }
 
-        //
-        public static string? GetValidOptionsSAS(string message, List<string> optionsSAS)
-        {
-            Console.Write(message);
-            var answer = Console.ReadLine();
-            if (optionsSAS.Any(x => x.Equals(answer, StringComparison.CurrentCultureIgnoreCase)))
-            {
-                return answer;
-            }
-            return null;
-        }
-
-        public static string? GetValidOptionsTemperature(string message, List<string> optionsTemperature)
-        {
-            Console.Write(message);
-            var answerTemperature = Console.ReadLine();
-            if (optionsTemperature.Any(x => x.Equals(answerTemperature, StringComparison.CurrentCultureIgnoreCase)))
-            { 
-                
-                return answerTemperature;
-            }
-            return null;
-        }
-
         public static string? GetValidOptionsStorage(string message, List<string> optionsStorage)
         {
             Console.Write(message);
