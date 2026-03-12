@@ -17,25 +17,25 @@ List<char> Ma = new List<char> { 'N', 'n', 'C', 'c', 'E', 'e', 'G', 'g' };
 do
 {
     //Purchase value 
-    var CC = ConsoleExtension.GetDecimal("Costo de Compra ($).....................................................................................: ");
+    var CC = ConsoleExtension.GetDecimal($"Costo de Compra ($).....................................................................................: ");
 
     //Types of products
-    var TpVerific = ConsoleExtension.GetChar("¿Tipo de producto [P]erecedero, [N]o perecedero?....................................................: ");
+    var TpVerific = ConsoleExtension.GetChar($"¿Tipo de producto [P]erecedero, [N]o perecedero?........................................................: ");
 
     //Types of conservation 
-    var TcVerific = ConsoleExtension.GetChar("¿Tipo de conservación [F]rio, [A]mbiente?...........................................................: ");
+    var TcVerific = ConsoleExtension.GetChar($"¿Tipo de conservación [F]rio, [A]mbiente?...............................................................: ");
 
     //Storage time in days
-    var Pc = ConsoleExtension.GetInt("Periodo de conservación en días.............................................................................: ");
+    var Pc = ConsoleExtension.GetInt($"Periodo de conservación en días.........................................................................: ");
 
     //Storage period
-    var Pa = ConsoleExtension.GetInt("Periodo de almacenamiento en días...........................................................................: ");
+    var Pa = ConsoleExtension.GetInt($"Periodo de almacenamiento en días.......................................................................: ");
 
     //Volume in liters
-    var Vol = ConsoleExtension.GetInt("Volumen en litros..........................................................................................: ");
+    var Vol = ConsoleExtension.GetInt($"Volumen en litros.......................................................................................: ");
 
     //
-    var MaVerific = ConsoleExtension.GetChar("Medio de almacenamiento [N]evera, [C]ongelador, [E]stanteria y [G]uacal?............................: ");
+    var MaVerific = ConsoleExtension.GetChar($"Medio de almacenamiento [N]evera, [C]ongelador, [E]stanteria y [G]uacal?................................: ");
 
     //Storage cost
     decimal CA = 0;
@@ -48,6 +48,9 @@ do
 
     //
     decimal VR_P = 0;
+
+    //The selling price
+    decimal VR_V = 0;
 
     //Variable that increases the type of product
     decimal CCIncrement;
@@ -64,26 +67,26 @@ do
                 {
                     if (Pc < 10)
                     {
-                        CA = CC * (decimal)1.05;
+                        CA = CC * (decimal)0.05;
                     }
                     if (Pc >= 10)
                     {
-                        CA = CC * (decimal)1.1;
+                        CA = CC * (decimal)0.1;
                     }
                 }
                 if (TcVerific == 'A' || TcVerific == 'a')
                 {
                     if (Pa < 20)
                     {
-                        CA = CC * (decimal)1.03;
+                        CA = CC * (decimal)0.03;
                     }
                     if (Pa == 20)
                     {
-                        CA = CC * (decimal)1.05;
+                        CA = CC * (decimal)0.05;
                     }
                     if (Pa > 20)
                     {
-                        CA = CC * (decimal)1.1;
+                        CA = CC * (decimal)0.1;
                     }
                 }
             }
@@ -97,11 +100,11 @@ do
         {
             if (Vol >= 50)
             {
-                CA = CC * (decimal)1.1;
+                CA = CC * (decimal)0.1;
             }
             if (Vol < 50)
             {
-                CA = CC * (decimal)1.2;
+                CA = CC * (decimal)0.2;
             }
         }
     }
@@ -160,11 +163,11 @@ do
             {
                 if (MaVerific == 'E' || MaVerific == 'E')
                 {
-                    CE = CA * (decimal)1.05;
+                    CE = CA * (decimal)0.05;
                 }
                 if (MaVerific == 'G' || MaVerific == 'g')
                 {
-                    CE = CA * (decimal)1.07;
+                    CE = CA * (decimal)0.07;
                 }
             }
             else
@@ -180,29 +183,32 @@ do
 
     //
     VR_P = (CC + CA + CE) * PDP;
-     
 
-    
-
-    do
+    //Type of products
+    if (Tp.Contains(TpVerific))
     {
-        answer = ConsoleExtension.GetValidOptionsSAS("Medio de almacenamiento [N]evera, [C]ongelador, [E]stanteria y [G]uacal?....................: ", optionsStorage);
-    } while (!optionsStorage.Any(x => x.Equals(answer, StringComparison.CurrentCultureIgnoreCase)));
+        //if the type of product is perishable
+        if (TpVerific == 'P' || TpVerific == 'p')
+        {
+            VR_V = VR_P * (decimal)1.4;
+        }
+        //if the type of product isn't perishable
+        if (TpVerific == 'N' || TpVerific == 'n')
+        {
+            VR_V = VR_P * (decimal)1.2;
+        }   
+    }
+    else
+    {
+        return;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Console.WriteLine("***Calculos***");
+    Console.WriteLine($"Costo de almacenamiento............: {CA,15:N0}");
+    Console.WriteLine($"Porcentaje de depreciación.........: {PDP,15}");
+    Console.WriteLine($"Costo de exhibición................: {CE,15:N0}");
+    Console.WriteLine($"Valor del Producto.................: {VR_P,15:N0}");
+    Console.WriteLine($"Valor de Venta.....................: {VR_V,15:N0}");
 
     do
     {

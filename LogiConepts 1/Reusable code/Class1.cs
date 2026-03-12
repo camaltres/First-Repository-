@@ -68,17 +68,6 @@
             return null;
         }
 
-        public static string? GetValidOptionsStorage(string message, List<string> optionsStorage)
-        {
-            Console.Write(message);
-            var answerStorage = Console.ReadLine();
-            if (optionsStorage.Any(x => x.Equals(answerStorage, StringComparison.CurrentCultureIgnoreCase)))
-            {
-                return answerStorage;
-            }
-            return null;
-        }
-
         public static char GetChar(string message)
         {
             Console.Write(message);
