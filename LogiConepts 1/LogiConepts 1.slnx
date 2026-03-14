@@ -29,6 +29,9 @@
   <Folder Name="/10 Exercise/">
     <Project Path="WarehousesS.A.S/WarehousesS.A.S.csproj" Id="4b4d6411-6d82-4e00-bfe5-9a4878cfa625" />
   </Folder>
+  <Folder Name="/11 Exercise/">
+    <Project Path="TransportCompany/TransportCompany.csproj" Id="07a2aac6-c81c-4985-a2b0-d554738828d9" />
+  </Folder>
   <Folder Name="/30 Exercise/">
     <Project Path="OperationsOnAMatrix/OperationsOnAMatrix.csproj" Id="be815f48-01ee-481a-8743-1b687008a466" />
   </Folder>
