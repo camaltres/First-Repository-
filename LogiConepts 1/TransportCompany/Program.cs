@@ -9,12 +9,12 @@ var options = new List<string> { "s", "n" };
 do
 {
     Console.WriteLine(" ");
-    var route = ConsoleExtension.GetInt("Ruta [1],[2],[3],[4].............................: ");
-    var trips = ConsoleExtension.GetInt("Numero de viajes.................................: ");
-    var passengers = ConsoleExtension.GetInt("Número de pasajeros total...................: ");
-    var kg = ConsoleExtension.GetInt("Número de encomiendas de menos de 10kg..............: ");
+    var route = ConsoleExtension.GetInt("Ruta [1],[2],[3],[4]............................: ");
+    var trips = ConsoleExtension.GetInt("Numero de viajes................................: ");
+    var passengers = ConsoleExtension.GetInt("Número de pasajeros total.......................: ");
+    var kg = ConsoleExtension.GetInt("Número de encomiendas de menos de 10kg..........: ");
     var kgPlus = ConsoleExtension.GetInt("Número de encomiendas entre 10kg y menos de 20kg: ");
-    var kgPluss = ConsoleExtension.GetInt("Número de encomiendas de más de 20Kg...........: ");
+    var kgPluss = ConsoleExtension.GetInt("Número de encomiendas de más de 20Kg............: ");
     Console.WriteLine(" *** CALCULOS *** ");
 
     decimal value = 0;
@@ -27,23 +27,23 @@ do
         {
             if (passengers <= 50)
             {
-               value = 500000;
+               value = 500000 * trips;
             }
             if (passengers >= 51 && passengers <= 100)
             {
-               value = 500000 * (decimal)1.05; 
+               value = (500000 * trips) * (decimal)1.05; 
             }
             if (passengers >= 101 && passengers <= 150)
             {
-               value = 500000 * (decimal)1.06;
+               value = (500000 * trips) * (decimal)1.06;
             }
             if(passengers >= 151 && passengers <= 200)
             {
-               value = 500000 * (decimal)1.07;
+               value = (500000 * trips) * (decimal)1.07;
             }
             if (passengers > 200)
             {
-               value = 500000 * (decimal)1.07 + ((passengers - 200) * 50);
+               value = (500000 * trips) * (decimal)1.07 + ((passengers - 200) * 50);
             }
             break;
         }
@@ -51,23 +51,23 @@ do
         {
            if (passengers <= 50)
            {
-              value = 600000;
+              value = 600000 * trips;
            }
            if (passengers >= 51 && passengers <= 100)
            {
-              value = 600000 * (decimal)1.07;
+              value = (600000 * trips) * (decimal)1.07;
            }
            if (passengers >= 101 && passengers <= 150)
            {
-              value = 600000 * (decimal)1.08;
+              value = (600000 * trips) * (decimal)1.08;
            }
            if (passengers >= 151 && passengers <= 200)
            {
-              value = 600000 * (decimal)1.09;
+              value = (600000 * trips) * (decimal)1.09;
            }
            if (passengers > 200)
            {
-              value = 600000 * (decimal)1.09 + ((passengers - 200) * 60);
+              value = (600000 * trips) * (decimal)1.09 + ((passengers - 200) * 60);
            }
            break;
         }
@@ -133,129 +133,161 @@ do
         {
            if (kg < 50)
            {
-              salary = salary * 100;                   
+              salary = salary + (kg * 100);                   
            }
            if (kg >= 50 && kg <= 100)
            {
-              salary = salary + 120;                    
+              salary = salary + (kg * 120);                    
            }
            if(kg >= 101 && kg <= 130)
            {
-              salary = salary + 150;
+              salary = salary + (kg * 150);
            }
            if(kg >= 130)
            {
-              salary = salary + 160;
+              salary = salary + (kg * 160);
            }
 
            if (kgPlus < 50)
            {
-              salary = salary + 120;                   
+              salary = salary + (kgPlus * 120);                   
            }
-           if (kgPlus >= 50 && kg <= 100)
+           if (kgPlus >= 50 && kgPlus <= 100)
            {
-              salary = salary + 140;                    
+              salary = salary + (kgPlus * 140);                    
            }
-           if(kgPlus >= 101 && kg <= 130)
+           if(kgPlus >= 101 && kgPlus <= 130)
            {
-              salary = salary + 160;
+              salary = salary + (kgPlus * 160);
            }
            if(kgPlus >= 130)
            {
-              salary = salary + 180;
+              salary = salary + (kgPlus * 180);
            }
-           salary = salary + value;
+
+           if (kgPluss < 50)
+           {
+              salary = salary + (kgPluss * 120);                   
+           }
+           if (kgPluss >= 50 && kgPluss <= 100)
+           {
+              salary = salary + (kgPluss * 140);                    
+           }
+           if(kgPluss >= 101 && kgPluss <= 130)
+           {
+              salary = salary + (kgPluss * 160);
+           }
+           if(kgPluss >= 130)
+           {
+              salary = salary + (kgPluss * 180);
+           }
            break;  
         }
         case 2:
         {
-           if (kg < 50)
+             if (kg < 50)
            {
-              salary = salary + 100;                   
+              salary = salary + (kg * 100);                   
            }
            if (kg >= 50 && kg <= 100)
            {
-              salary = salary + 120;                    
+              salary = salary + (kg * 120);                    
            }
            if(kg >= 101 && kg <= 130)
            {
-              salary = salary + 150;
+              salary = salary + (kg * 150);
            }
            if(kg >= 130)
            {
-              salary = salary + 160;
+              salary = salary + (kg * 160);
            }
-           //kgPlus 
+
            if (kgPlus < 50)
            {
-              salary = salary + 120;                   
+              salary = salary + (kgPlus * 120);                   
            }
-           if (kgPlus >= 50 && kg <= 100)
+           if (kgPlus >= 50 && kgPlus <= 100)
            {
-              salary = salary + 140;                    
+              salary = salary + (kgPlus * 140);                    
            }
-           if(kgPlus >= 101 && kg <= 130)
+           if(kgPlus >= 101 && kgPlus <= 130)
            {
-              salary = salary + 160;
+              salary = salary + (kgPlus * 160);
            }
            if(kgPlus >= 130)
            {
-              salary = salary + 180;
+              salary = salary + (kgPlus * 180);
            }
-           salary = salary + value;
-           break;       
+
+           if (kgPluss < 50)
+           {
+              salary = salary + (kgPluss * 120);                   
+           }
+           if (kgPluss >= 50 && kgPluss <= 100)
+           {
+              salary = salary + (kgPluss * 140);                    
+           }
+           if(kgPluss >= 101 && kgPluss <= 130)
+           {
+              salary = salary + (kgPluss * 160);
+           }
+           if(kgPluss >= 130)
+           {
+              salary = salary + (kgPluss * 180);
+           }
+           break;  
         }
         case 3:
         {
            if (kg < 50)
            {
-              salary = salary + 130;                   
+              salary = salary + (kg * 130);                   
            }
            if (kg >= 50 && kg <= 100)
            {
-              salary = salary + 160;                    
+              salary = salary + (kg * 160);                    
            }
            if(kg >= 101 && kg <= 130)
            {
-              salary = salary + 175;
+              salary = salary + (kg * 175);
            }
            if(kg >= 130)
            {
-              salary = salary + 200;
+              salary = salary + (kg * 200);
            }
 
            if (kgPlus < 50)
            {
-              salary = salary + 140;                   
+              salary = salary + (kgPlus * 140);                   
            }
-           if (kgPlus >= 50 && kg <= 100)
+           if (kgPlus >= 50 && kgPlus <= 100)
            {
-              salary = salary + 180;                    
+              salary = salary + (kgPlus * 180);                    
            }
-           if(kgPlus >= 101 && kg <= 130)
+           if(kgPlus >= 101 && kgPlus <= 130)
            {
-              salary = salary + 200;
+              salary = salary + (kgPlus * 200);
            }
            if(kgPlus >= 130)
            {
-              salary = salary + 250;
+              salary = salary + (kgPlus * 250);
            }
 
            if (kgPluss < 50)
            {
-              salary = salary + 170;                   
+              salary = salary + (kgPluss * 170);                   
            }
-           if (kgPluss >= 50 && kg <= 100)
+           if (kgPluss >= 50 && kgPluss <= 100)
            {
-              salary = salary + 210;                    
+              salary = salary + (kgPluss * 210);                    
            }
-           if(kgPluss >= 101 && kg <= 130)
+           if(kgPluss >= 101 && kgPluss <= 130)
            {
-              salary = salary + 250;
+              salary = salary + (kgPluss * 250);
            }
            if(kgPluss >= 130)
            {
-              salary = salary + 300;
+              salary = salary + (kgPluss * 300);
            }
 
            salary = salary + value;
@@ -265,60 +297,62 @@ do
         {
            if (kg < 50)
            {
-              salary = salary + 130;                   
+              salary = salary + (kg * 130);                   
            }
            if (kg >= 50 && kg <= 100)
            {
-              salary = salary + 160;                    
+              salary = salary + (kg * 160);                    
            }
            if(kg >= 101 && kg <= 130)
            {
-              salary = salary + 175;
+              salary = salary + (kg * 175);
            }
            if(kg >= 130)
            {
-              salary = salary + 200;
+              salary = salary + (kg * 200);
            }
 
            if (kgPlus < 50)
            {
-              salary = salary + 140;                   
+              salary = salary + (kgPlus * 140);                   
            }
-           if (kgPlus >= 50 && kg <= 100)
+           if (kgPlus >= 50 && kgPlus <= 100)
            {
-              salary = salary + 180;                    
+              salary = salary + (kgPlus * 180);                    
            }
-           if(kgPlus >= 101 && kg <= 130)
+           if(kgPlus >= 101 && kgPlus <= 130)
            {
-              salary = salary + 200;
+              salary = salary + (kgPlus * 200);
            }
            if(kgPlus >= 130)
            {
-              salary = salary + 250;
+              salary = salary + (kgPlus * 250);
            }
 
            if (kgPluss < 50)
            {
-              salary = salary + 170;                   
+              salary = salary + (kgPluss * 170);                   
            }
-           if (kgPluss >= 50 && kg <= 100)
+           if (kgPluss >= 50 && kgPluss <= 100)
            {
-              salary = salary + 210;                    
+              salary = salary + (kgPluss * 210);                    
            }
-           if(kgPluss >= 101 && kg <= 130)
+           if(kgPluss >= 101 && kgPluss <= 130)
            {
-              salary = salary + 250;
+              salary = salary + (kgPluss * 250);
            }
            if(kgPluss >= 130)
            {
-              salary = salary + 300;
+              salary = salary + (kg * 300);
            }
            salary = salary + value;
            break;       
         }
     }
-  
 
+    Console.WriteLine($"Ingresos por Pasajeros................: {value,15:C0}");
+    Console.WriteLine($"Ingresos por Encomiendas..............: {salary,15:C0}");
+    Console.WriteLine("                                      :---------------- ");
 
 
 
