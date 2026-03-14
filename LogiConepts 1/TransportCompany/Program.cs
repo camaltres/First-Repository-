@@ -19,6 +19,9 @@ do
 
     decimal value = 0;
     decimal salary = 0;
+    decimal income;
+    decimal assistant = 0;
+    decimal sure = 0;   
 
     //Commissions based on number of passengers
     switch (route)
@@ -43,7 +46,7 @@ do
             }
             if (passengers > 200)
             {
-               value = (500000 * trips) * (decimal)1.07 + ((passengers - 200) * 50);
+               value = ((500000 * trips) * (decimal)1.07 + ((passengers - 200) * 50));
             }
             break;
         }
@@ -67,7 +70,7 @@ do
            }
            if (passengers > 200)
            {
-              value = (600000 * trips) * (decimal)1.09 + ((passengers - 200) * 60);
+              value = ((600000 * trips) * (decimal)1.09 + ((passengers - 200) * 60));
            }
            break;
         }
@@ -75,23 +78,23 @@ do
         {
             if (passengers <= 50)
             {
-               value = 800000;
+               value = 800000 * trips;
             }
             if (passengers >= 51 && passengers <= 100)
             {
-               value = 800000 * (decimal)1.1; 
+               value = (800000 * trips) * (decimal)1.1; 
             }
             if (passengers >= 101 && passengers <= 150)
             {
-               value = 800000 * (decimal)1.13;
+               value = (800000 * trips) * (decimal)1.13;
             }
             if(passengers >= 151 && passengers <= 200)
             {
-               value = 800000 * (decimal)1.15;
+               value = (800000 * trips) * (decimal)1.15;
             }
             if (passengers > 200)
             {
-               value = 800000 * (decimal)1.15 + ((passengers - 200) * 100);
+               value = ((800000 * trips) * (decimal)1.15 + ((passengers - 200) * 100));
             }
             break;      
         }
@@ -99,23 +102,23 @@ do
         {
             if (passengers <= 50)
             {
-               value = 1000000;
+               value = 1000000 * trips;
             }
             if (passengers >= 51 && passengers <= 100)
             {
-               value = 1000000 * (decimal)1.125; 
+               value = (1000000 * trips) * (decimal)1.125; 
             }
             if (passengers >= 101 && passengers <= 150)
             {
-               value = 1000000 * (decimal)1.15;
+               value = (1000000 * trips) * (decimal)1.15;
             }
             if(passengers >= 151 && passengers <= 200)
             {
-               value = 1000000 * (decimal)1.17;
+               value = (1000000 * trips) * (decimal)1.17;
             }
             if (passengers > 200)
             {
-               value = 1000000 * (decimal)1.17 + ((passengers - 200) * 150);
+               value = ((1000000 * trips) * (decimal)1.17 + ((passengers - 200) * 150));
             }
             break;       
         }
@@ -350,11 +353,47 @@ do
         }
     }
 
+    //Total income
+    income = value + salary;
+
+    //
+    if (income < 1000000)
+    {
+        assistant = income * (decimal)0.05;
+        sure = income * (decimal)0.03;
+    }
+    if (income >= 1000000 && income <= 2000000)
+    {
+        assistant = income * (decimal)0.08;
+        sure = income * (decimal)0.04;
+    }
+    if (income >= 2000001 && income <= 4000000)
+    {
+        assistant = income * (decimal)0.1;
+        sure = income * (decimal)0.06;
+    }
+    if (income > 4000000)
+    {
+        assistant = income * (decimal)0.13;
+        sure = income * (decimal)0.09;
+    }
+
+
+
+
+
+
+
+
+
+
+
     Console.WriteLine($"Ingresos por Pasajeros................: {value,15:C0}");
     Console.WriteLine($"Ingresos por Encomiendas..............: {salary,15:C0}");
     Console.WriteLine("                                      :---------------- ");
-
-
+    Console.WriteLine($"TOTAL INGRESOS........................: {income,15:C0}");
+    Console.WriteLine($"Pago Ayudante.........................: {assistant,15:C0}");
+    Console.WriteLine($"Pago Seguro...........................: {sure,15:C0}");
 
 
 
