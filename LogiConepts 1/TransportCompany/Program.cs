@@ -21,7 +21,9 @@ do
     decimal salary = 0;
     decimal income;
     decimal assistant = 0;
-    decimal sure = 0;   
+    decimal sure = 0;
+    decimal km = 0;
+    decimal subsidy = 0;
 
     //Commissions based on number of passengers
     switch (route)
@@ -292,8 +294,6 @@ do
            {
               salary = salary + (kgPluss * 300);
            }
-
-           salary = salary + value;
            break;        
         }
         case 4:
@@ -348,15 +348,14 @@ do
            {
               salary = salary + (kg * 300);
            }
-           salary = salary + value;
            break;       
         }
     }
 
     //Total income
-    income = value + salary;
+    income = salary + value;
 
-    //
+    //I pay the assistant and insurance
     if (income < 1000000)
     {
         assistant = income * (decimal)0.05;
@@ -378,11 +377,75 @@ do
         sure = income * (decimal)0.09;
     }
 
+    //Gasoline consumption
+    switch (route)
+    {
+        case 1:
+        {
+         km = 8860 * ((150 * trips) / 39);
+         subsidy = km - (km * (decimal)0.25);
+         break;
+        }
+        case 2:
+        {
+         km = 8860 * ((167 * trips) / 39);
+         subsidy = km - (km * (decimal)0.25);
+         break;
+        }
+        case 3:
+        {
+         km = 8860 * ((184 * trips) / 39);
+         subsidy = km - (km * (decimal)0.25);
+         break;
+        }
+        case 4:
+        {
+         km = 8860 * ((203 * trips) / 39);
+         subsidy = km - (km * (decimal)0.25);
+         break;
+        }
+    }
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*Los galones que se va gastar en la ruta 
+    8860 * 4 = 35.440;
+        
+  
+     8860 * 12.84 = 106.320
+     113.762,4 * 0.25 = 28.440,6
+     113.762,4 - 28.440,6 = 85.321,8
+     
+     167 * 3 = 501
+     501 / 39 = 12 
+     8860 * 12 = 106.320 
+     106.320 * 0.25 = 26.580
+     106.320 - 26.580 = 79.740
+
+    145 * 60 = 8.700;
+ 
+    39Km = 1 gal 
+    1 gal = 8860;
+    */
+
+    
 
 
 
@@ -394,7 +457,8 @@ do
     Console.WriteLine($"TOTAL INGRESOS........................: {income,15:C0}");
     Console.WriteLine($"Pago Ayudante.........................: {assistant,15:C0}");
     Console.WriteLine($"Pago Seguro...........................: {sure,15:C0}");
-
+    Console.WriteLine($"Pago Combustible......................: {subsidy,15:C0}");
+    Console.WriteLine($"\n");
 
 
     do
