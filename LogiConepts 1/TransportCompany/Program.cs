@@ -19,10 +19,16 @@ do
     decimal value = 0;
     decimal salary = 0;
     decimal income;
-    decimal assistant = 0;
-    decimal sure = 0;
-    decimal gal = 0;
+    decimal assistant;
+    decimal sure;
+    float percentage = 0;
+    float percentage1 = 0;
+    int laps = 0;
+    float gal;
     decimal fuel = 0;
+    float x;
+    float y;
+    float z = 0;
     decimal deduction;
     decimal liquidate;
 
@@ -359,92 +365,90 @@ do
     //I pay the assistant and insurance
     if (income < 1000000)
     {
-        assistant = income * (decimal)0.05;
-        sure = income * (decimal)0.03;
+        percentage = (float)0.05;
+        percentage1 = (float)0.03;
     }
     if (income >= 1000000 && income <= 2000000)
     {
-        assistant = income * (decimal)0.08;
-        sure = income * (decimal)0.04;
+        percentage =  (float)0.08;
+        percentage1 = (float)0.04;
     }
     if (income >= 2000001 && income <= 4000000)
     {
-        assistant = income * (decimal)0.1;
-        sure = income * (decimal)0.06;
+        percentage = (float)0.1;
+        percentage1 = (float)0.06;
     }
     if (income > 4000000)
     {
-        assistant = income * (decimal)0.13;
-        sure = income * (decimal)0.09;
+        percentage = (float)0.13;
+        percentage1 = (float)0.09;
     }
 
-    //Gasoline consumption
+    assistant = income * (decimal)percentage;
+    sure = income * (decimal)percentage1;
+
     switch (route)
     {
         case 1:
         {
-         gal = 8860 * ((150 * trips) / 39);
-         fuel = gal - (gal * (decimal)0.25);
-         break;
+           laps =  150 * trips; 
+           break;
         }
         case 2:
         {
-         gal = 8860 * ((167 * trips) / 39);
-         fuel = gal - (gal * (decimal)0.25);
-         break;
+           laps =  167 * trips; 
+           break;   
         }
         case 3:
         {
-         gal = 8860 * ((184 * trips) / 39);
-         fuel = gal - (gal * (decimal)0.25);
-         break;
+           laps =  184 * trips; 
+           break;   
         }
         case 4:
         {
-         gal = 8860 * ((203 * trips) / 39);
-         fuel = gal - (gal * (decimal)0.25);
-         break;
+           laps =  203 * trips; 
+           break;   
         }
+    
     }
 
-    int approximate = passengers * 60 + kg * 10 + kgPlus * 15 + kgPluss * 20;
-    decimal valuee = 0;
+    gal = laps / 39;
+    x = 8860 * gal;
+    fuel = 8860 * (decimal)gal;
 
-    if (approximate <= 5000)
+    y = passengers * 60 + kg * 10 + kgPlus * 15 + kgPluss * 20;
+
+    if (y <= 5000)
     {
-        valuee = gal;
-
+        z = 1; 
     }
-    if (approximate > 5000 && approximate <= 10000)
+    if (y > 5000 && y <= 10000)
     {
-        valuee = gal * (decimal)1.1;
-        
+        z = (float)1.1;
     }
-    if (approximate > 10000)
+    if (y > 10000)
     {
-
-        valuee = gal * (decimal)1.25;
+        z = (float)1.25;
     }
 
-    //deduction
-    deduction = assistant + sure + valuee;
+    fuel = fuel * (decimal)z;
 
-    //liquidate
+    deduction = assistant + sure + fuel;
     liquidate = income - deduction;
 
 
     Console.WriteLine(" *** CALCULOS *** ");
-    Console.WriteLine($"Ingresos por Pasajeros................: {value,15:C0}");
-    Console.WriteLine($"Ingresos por Encomiendas..............: {salary,15:C0}");
+    Console.WriteLine($"Ingresos por Pasajeros................: {value,15:C2}");
+    Console.WriteLine($"Ingresos por Encomiendas..............: {salary,15:C2}");
     Console.WriteLine("                                      :---------------- ");
-    Console.WriteLine($"TOTAL INGRESOS........................: {income,15:C0}");
-    Console.WriteLine($"Pago Ayudante.........................: {assistant,15:C0}");
-    Console.WriteLine($"Pago Seguro...........................: {sure,15:C0}");
-    Console.WriteLine($"Pago Combustible......................: {fuel,15:C0}");
+    Console.WriteLine($"TOTAL INGRESOS........................: {income,15:C2}");
+    Console.WriteLine($"Pago Ayudante.........................: {assistant,15:C2}");
+    Console.WriteLine($"Pago Seguro...........................: {sure,15:C2}");
+    Console.WriteLine($"Pago Combustible......................: {fuel,15:C2}");
     Console.WriteLine("                                      :---------------- ");
-    Console.WriteLine($"TOTAL DEDUCCIONES.....................: {valuee,15:C0}");
+    Console.WriteLine($"TOTAL DEDUCCIONES.....................: {deduction,15:C2}");
     Console.WriteLine("                                      :---------------- ");
-    Console.WriteLine($"TOTAL A LIQUIDAR......................: {liquidate,15:C0}");
+    Console.WriteLine($"TOTAL A LIQUIDAR......................: {liquidate,15:C2}");
     do
     {
         answer = ConsoleExtension.GetValidOptions("¿Deseas Continuar [S]í, [N]o?: ", options);
