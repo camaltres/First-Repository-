@@ -431,7 +431,7 @@ do
         z = (float)1.25;
     }
 
-    fuel = fuel * (decimal)z;
+    fuel = fuel * (decimal);
 
     deduction = assistant + sure + fuel;
     liquidate = income - deduction;
