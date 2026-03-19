@@ -8,450 +8,169 @@ var answer = string.Empty;
 var options = new List<string> { "s", "n" };
 do
 {
-    Console.WriteLine(" ");
-    var route = ConsoleExtension.GetInt("Ruta [1],[2],[3],[4]............................: ");
-    var trips = ConsoleExtension.GetInt("Numero de viajes................................: ");
-    var passengers = ConsoleExtension.GetInt("Número de pasajeros total.......................: ");
-    var kg = ConsoleExtension.GetInt("Número de encomiendas de menos de 10kg..........: ");
-    var kgPlus = ConsoleExtension.GetInt("Número de encomiendas entre 10kg y menos de 20kg: ");
-    var kgPluss = ConsoleExtension.GetInt("Número de encomiendas de más de 20Kg............: ");
-
-    decimal value = 0;
-    decimal salary = 0;
-    decimal income;
-    decimal assistant;
-    decimal sure;
-    float percentage = 0;
-    float percentage1 = 0;
-    int laps = 0;
-    float gal;
-    decimal fuel = 0;
-    float x;
-    float y;
-    float z = 0;
-    decimal deduction;
-    decimal liquidate;
-
-    //Commissions based on number of passengers
-    switch (route)
-    {
-        case 1:
-        {
-            if (passengers <= 50)
-            {
-               value = 500000 * trips;
-            }
-            if (passengers >= 51 && passengers <= 100)
-            {
-               value = (500000 * trips) * (decimal)1.05; 
-            }
-            if (passengers >= 101 && passengers <= 150)
-            {
-               value = (500000 * trips) * (decimal)1.06;
-            }
-            if(passengers >= 151 && passengers <= 200)
-            {
-               value = (500000 * trips) * (decimal)1.07;
-            }
-            if (passengers > 200)
-            {
-               value = ((500000 * trips) * (decimal)1.07 + ((passengers - 200) * 50));
-            }
-            break;
-        }
-        case 2:
-        {
-           if (passengers <= 50)
-           {
-              value = 600000 * trips;
-           }
-           if (passengers >= 51 && passengers <= 100)
-           {
-              value = (600000 * trips) * (decimal)1.07;
-           }
-           if (passengers >= 101 && passengers <= 150)
-           {
-              value = (600000 * trips) * (decimal)1.08;
-           }
-           if (passengers >= 151 && passengers <= 200)
-           {
-              value = (600000 * trips) * (decimal)1.09;
-           }
-           if (passengers > 200)
-           {
-              value = ((600000 * trips) * (decimal)1.09 + ((passengers - 200) * 60));
-           }
-           break;
-        }
-        case 3:
-        {
-            if (passengers <= 50)
-            {
-               value = 800000 * trips;
-            }
-            if (passengers >= 51 && passengers <= 100)
-            {
-               value = (800000 * trips) * (decimal)1.1; 
-            }
-            if (passengers >= 101 && passengers <= 150)
-            {
-               value = (800000 * trips) * (decimal)1.13;
-            }
-            if(passengers >= 151 && passengers <= 200)
-            {
-               value = (800000 * trips) * (decimal)1.15;
-            }
-            if (passengers > 200)
-            {
-               value = ((800000 * trips) * (decimal)1.15 + ((passengers - 200) * 100));
-            }
-            break;      
-        }
-        case 4:
-        {
-            if (passengers <= 50)
-            {
-               value = 1000000 * trips;
-            }
-            if (passengers >= 51 && passengers <= 100)
-            {
-               value = (1000000 * trips) * (decimal)1.125; 
-            }
-            if (passengers >= 101 && passengers <= 150)
-            {
-               value = (1000000 * trips) * (decimal)1.15;
-            }
-            if(passengers >= 151 && passengers <= 200)
-            {
-               value = (1000000 * trips) * (decimal)1.17;
-            }
-            if (passengers > 200)
-            {
-               value = ((1000000 * trips) * (decimal)1.17 + ((passengers - 200) * 150));
-            }
-            break;       
-        }
-        default:
-        {
-           Console.WriteLine("La ruta que ingreso es incorrecta");
-           return;
-        }     
-    }
-
-    //Parcel service
-    switch (route)
-    {
-        case 1:
-        {
-           if (kg < 50)
-           {
-              salary = salary + (kg * 100);                   
-           }
-           if (kg >= 50 && kg <= 100)
-           {
-              salary = salary + (kg * 120);                    
-           }
-           if(kg >= 101 && kg <= 130)
-           {
-              salary = salary + (kg * 150);
-           }
-           if(kg >= 130)
-           {
-              salary = salary + (kg * 160);
-           }
-
-           if (kgPlus < 50)
-           {
-              salary = salary + (kgPlus * 120);                   
-           }
-           if (kgPlus >= 50 && kgPlus <= 100)
-           {
-              salary = salary + (kgPlus * 140);                    
-           }
-           if(kgPlus >= 101 && kgPlus <= 130)
-           {
-              salary = salary + (kgPlus * 160);
-           }
-           if(kgPlus >= 130)
-           {
-              salary = salary + (kgPlus * 180);
-           }
-
-           if (kgPluss < 50)
-           {
-              salary = salary + (kgPluss * 120);                   
-           }
-           if (kgPluss >= 50 && kgPluss <= 100)
-           {
-              salary = salary + (kgPluss * 140);                    
-           }
-           if(kgPluss >= 101 && kgPluss <= 130)
-           {
-              salary = salary + (kgPluss * 160);
-           }
-           if(kgPluss >= 130)
-           {
-              salary = salary + (kgPluss * 180);
-           }
-           break;  
-        }
-        case 2:
-        {
-             if (kg < 50)
-           {
-              salary = salary + (kg * 100);                   
-           }
-           if (kg >= 50 && kg <= 100)
-           {
-              salary = salary + (kg * 120);                    
-           }
-           if(kg >= 101 && kg <= 130)
-           {
-              salary = salary + (kg * 150);
-           }
-           if(kg >= 130)
-           {
-              salary = salary + (kg * 160);
-           }
-
-           if (kgPlus < 50)
-           {
-              salary = salary + (kgPlus * 120);                   
-           }
-           if (kgPlus >= 50 && kgPlus <= 100)
-           {
-              salary = salary + (kgPlus * 140);                    
-           }
-           if(kgPlus >= 101 && kgPlus <= 130)
-           {
-              salary = salary + (kgPlus * 160);
-           }
-           if(kgPlus >= 130)
-           {
-              salary = salary + (kgPlus * 180);
-           }
-
-           if (kgPluss < 50)
-           {
-              salary = salary + (kgPluss * 120);                   
-           }
-           if (kgPluss >= 50 && kgPluss <= 100)
-           {
-              salary = salary + (kgPluss * 140);                    
-           }
-           if(kgPluss >= 101 && kgPluss <= 130)
-           {
-              salary = salary + (kgPluss * 160);
-           }
-           if(kgPluss >= 130)
-           {
-              salary = salary + (kgPluss * 180);
-           }
-           break;  
-        }
-        case 3:
-        {
-           if (kg < 50)
-           {
-              salary = salary + (kg * 130);                   
-           }
-           if (kg >= 50 && kg <= 100)
-           {
-              salary = salary + (kg * 160);                    
-           }
-           if(kg >= 101 && kg <= 130)
-           {
-              salary = salary + (kg * 175);
-           }
-           if(kg >= 130)
-           {
-              salary = salary + (kg * 200);
-           }
-
-           if (kgPlus < 50)
-           {
-              salary = salary + (kgPlus * 140);                   
-           }
-           if (kgPlus >= 50 && kgPlus <= 100)
-           {
-              salary = salary + (kgPlus * 180);                    
-           }
-           if(kgPlus >= 101 && kgPlus <= 130)
-           {
-              salary = salary + (kgPlus * 200);
-           }
-           if(kgPlus >= 130)
-           {
-              salary = salary + (kgPlus * 250);
-           }
-
-           if (kgPluss < 50)
-           {
-              salary = salary + (kgPluss * 170);                   
-           }
-           if (kgPluss >= 50 && kgPluss <= 100)
-           {
-              salary = salary + (kgPluss * 210);                    
-           }
-           if(kgPluss >= 101 && kgPluss <= 130)
-           {
-              salary = salary + (kgPluss * 250);
-           }
-           if(kgPluss >= 130)
-           {
-              salary = salary + (kgPluss * 300);
-           }
-           break;        
-        }
-        case 4:
-        {
-           if (kg < 50)
-           {
-              salary = salary + (kg * 130);                   
-           }
-           if (kg >= 50 && kg <= 100)
-           {
-              salary = salary + (kg * 160);                    
-           }
-           if(kg >= 101 && kg <= 130)
-           {
-              salary = salary + (kg * 175);
-           }
-           if(kg >= 130)
-           {
-              salary = salary + (kg * 200);
-           }
-
-           if (kgPlus < 50)
-           {
-              salary = salary + (kgPlus * 140);                   
-           }
-           if (kgPlus >= 50 && kgPlus <= 100)
-           {
-              salary = salary + (kgPlus * 180);                    
-           }
-           if(kgPlus >= 101 && kgPlus <= 130)
-           {
-              salary = salary + (kgPlus * 200);
-           }
-           if(kgPlus >= 130)
-           {
-              salary = salary + (kgPlus * 250);
-           }
-
-           if (kgPluss < 50)
-           {
-              salary = salary + (kgPluss * 170);                   
-           }
-           if (kgPluss >= 50 && kgPluss <= 100)
-           {
-              salary = salary + (kgPluss * 210);                    
-           }
-           if(kgPluss >= 101 && kgPluss <= 130)
-           {
-              salary = salary + (kgPluss * 250);
-           }
-           if(kgPluss >= 130)
-           {
-              salary = salary + (kg * 300);
-           }
-           break;       
-        }
-    }
-
-    //Total income
-    income = salary + value;
-
-    //I pay the assistant and insurance
-    if (income < 1000000)
-    {
-        percentage = (float)0.05;
-        percentage1 = (float)0.03;
-    }
-    if (income >= 1000000 && income <= 2000000)
-    {
-        percentage =  (float)0.08;
-        percentage1 = (float)0.04;
-    }
-    if (income >= 2000001 && income <= 4000000)
-    {
-        percentage = (float)0.1;
-        percentage1 = (float)0.06;
-    }
-    if (income > 4000000)
-    {
-        percentage = (float)0.13;
-        percentage1 = (float)0.09;
-    }
-
-    assistant = income * (decimal)percentage;
-    sure = income * (decimal)percentage1;
-
-    switch (route)
-    {
-        case 1:
-        {
-           laps =  150 * trips; 
-           break;
-        }
-        case 2:
-        {
-           laps =  167 * trips; 
-           break;   
-        }
-        case 3:
-        {
-           laps =  184 * trips; 
-           break;   
-        }
-        case 4:
-        {
-           laps =  203 * trips; 
-           break;   
-        }
-    
-    }
-
-    gal = laps / 39;
-    x = 8860 * gal;
-    fuel = 8860 * (decimal)gal;
-
-    y = passengers * 60 + kg * 10 + kgPlus * 15 + kgPluss * 20;
-
-    if (y <= 5000)
-    {
-        z = 1; 
-    }
-    if (y > 5000 && y <= 10000)
-    {
-        z = (float)1.1;
-    }
-    if (y > 10000)
-    {
-        z = (float)1.25;
-    }
-
-    fuel = fuel * (decimal)z;
-
-    deduction = assistant + sure + fuel;
-    liquidate = income - deduction;
-
-
-    Console.WriteLine(" *** CALCULOS *** ");
-    Console.WriteLine($"Ingresos por Pasajeros................: {value,15:C2}");
-    Console.WriteLine($"Ingresos por Encomiendas..............: {salary,15:C2}");
-    Console.WriteLine("                                      :---------------- ");
-    Console.WriteLine($"TOTAL INGRESOS........................: {income,15:C2}");
-    Console.WriteLine($"Pago Ayudante.........................: {assistant,15:C2}");
-    Console.WriteLine($"Pago Seguro...........................: {sure,15:C2}");
-    Console.WriteLine($"Pago Combustible......................: {fuel,15:C2}");
-    Console.WriteLine("                                      :---------------- ");
-    Console.WriteLine($"TOTAL DEDUCCIONES.....................: {deduction,15:C2}");
-    Console.WriteLine("                                      :---------------- ");
-    Console.WriteLine($"TOTAL A LIQUIDAR......................: {liquidate,15:C2}");
+    var routeOptions = new List<string> { "1", "2", "3", "4" };
+    var route = string.Empty;
     do
     {
+        route = ConsoleExtension.GetValidOptions("Ruta del bus [1] [2] [3] [4]........: ", routeOptions);
+    } while (!routeOptions.Any(x => x == route));
+
+    var trips = ConsoleExtension.GetInt("Número de viajes..........................................: ");
+    var passanger = ConsoleExtension.GetInt("Número de pasajeros total.............................: ");
+    var parcels10 = ConsoleExtension.GetInt("Número de encomiendas de menos de 10Kg................: ");
+    var parcels15 = ConsoleExtension.GetInt("Número de encomiendas entre 10Kg y menos de 20Kg......: ");
+    var parcels20 = ConsoleExtension.GetInt("Número de encomiendas de más de 20Kg..................: ");
+
+    //Calculations
+    var incomePassanger = GetIncomePassanger(route, passanger, trips);
+    var incomeParcels = GetIncomeParcels(parcels10, parcels15, parcels20, route);
+    var incomes = incomePassanger + incomeParcels;
+    var valueHelper = GetValueHelper(incomes);
+    var valueAssurrace = GetValueAssurrace(incomes);
+    var fuelValue = GetFuel(route, trips);
+
+    {
         answer = ConsoleExtension.GetValidOptions("¿Deseas Continuar [S]í, [N]o?: ", options);
-    } while (!options.Any(x => x.Equals(answer, StringComparison.CurrentCultureIgnoreCase)));
+    } while (!options.Any(x => x.Equals(answer, StringComparison.CurrentCultureIgnoreCase))) ;
 }
 while (answer!.Equals("s", StringComparison.CurrentCultureIgnoreCase));
+
+decimal GetIncomePassanger(string? route, int passanger, int trips)
+{
+    decimal value;
+    switch (route)
+    {
+        case "1":
+        
+          value = 500000m * trips;
+          if(passanger <= 50) return value;
+          if(passanger <= 100) return value * 1.05m;
+          if(passanger <= 150) return value * 1.06m;
+          if(passanger <= 200) return value * 1.07m;
+          return value * 1.07m + (passanger - 200) * 50m;
+        
+        case "2": 
+        
+          value = 600000m * trips;
+          if(passanger <= 50) return value;
+          if(passanger <= 100) return value * 1.07m;
+          if(passanger <= 150) return value * 1.08m;
+          if(passanger <= 200) return value * 1.09m;
+          return value * 1.09m + (passanger - 200) * 60m;
+        
+        case "3":
+        
+          value = 800000m * trips;
+          if(passanger <= 50) return value;
+          if(passanger <= 100) return value * 1.1m;
+          if(passanger <= 150) return value * 1.13m;
+          if(passanger <= 200) return value * 1.15m;
+          return value * 1.15m + (passanger - 200) * 100m;
+        
+        case "4":
+        
+          value = 1000000m * trips;
+          if(passanger <= 50) return value;
+          if(passanger <= 100) return value * 1.125m;
+          if(passanger <= 150) return value * 1.15m;
+          if(passanger <= 200) return value * 1.17m;
+          return value * 1.17m + (passanger - 200) * 150m;
+
+        default:
+            return 0;
+    }
+}
+
+decimal GetIncomeParcels(int parcels10, int parcels15, int parcels20, string? route)
+{
+    decimal value = 0;
+    switch (route)
+    {
+        case "1":
+        case "2":
+        
+          if(parcels10 <= 50) value += value + parcels10 * 100;
+          else if(parcels10 <= 100) value += value + parcels10 * 120;
+          else if(parcels10 <= 130) value += value + parcels10 * 150;
+          else value += value + parcels10 * 160;
+
+          var parcelsGreathers = parcels15 + parcels20;
+          if(parcelsGreathers <= 50) value += parcelsGreathers * 120;
+          else if (parcelsGreathers <= 100) value += parcelsGreathers * 140;
+          else if (parcelsGreathers <= 130) value += parcelsGreathers * 160;
+          else value += parcelsGreathers * 180;
+
+          return value;
+
+        default:
+
+          if(parcels10 <= 50) value += value + parcels10 * 130;
+          else if(parcels10 <= 100) value += value + parcels10 * 160;
+          else if(parcels10 <= 130) value += value + parcels10 * 175;
+          else value += value + parcels10 * 200;
+
+          if(parcels15 <= 50) value += value + parcels20 * 140;
+          else if(parcels15 <= 100) value += value + parcels20 * 180;
+          else if(parcels15 <= 130) value += value + parcels20 * 200;
+          else value += value + parcels15 * 250;
+
+          if(parcels20 <= 50) value += value + parcels20 * 170;
+          else if(parcels20 <= 100) value += value + parcels20 * 210;
+          else if(parcels20 <= 130) value += value + parcels20 * 250;
+          else value += value + parcels20 * 300;
+
+          return value;
+ 
+    }
+
+}
+
+decimal GetValueHelper(decimal incomes)
+{
+    if (incomes < 1000000) return incomes * 0.05m;
+    if (incomes < 2000000) return incomes * 0.08m;
+    if(incomes < 4000000) return incomes * 0.10m;
+    return incomes * 0.13m;
+}
+
+decimal GetValueAssurrace(decimal incomes)
+{
+    if (incomes <= 1000000) return incomes * 0.03m;
+    if (incomes <= 2000000) return incomes * 0.04m;
+    if (incomes <= 4000000) return incomes * 0.6m;
+    return incomes * 0.09m;
+}
+
+object GetFuel(string? route, int trips)
+{
+    float km;
+
+    switch (route)
+    {
+        case "1":
+            
+            km = trips * 150;
+            break;
+       
+        case "2":
+
+            km = trips * 167;
+            break ;
+
+        case "3":
+
+            km = trips * 184;
+            break;
+        default:
+
+            km = trips * 203;
+            break;     
+    }
+
+    float gal = 8860 * (km / 39);
+    decimal subsidy = (decimal)gal * 0.25m;
+    decimal subtraction = (decimal)gal - subsidy;
+    
+
+
+}
