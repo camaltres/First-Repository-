@@ -170,7 +170,5 @@ object GetFuel(string? route, int trips)
     float gal = 8860 * (km / 39);
     decimal subsidy = (decimal)gal * 0.25m;
     decimal subtraction = (decimal)gal - subsidy;
-    
-
-
+    return subtraction;
 }
